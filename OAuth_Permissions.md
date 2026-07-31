@@ -1,5 +1,6 @@
 # OAuth Permissions and Data Handling
-"CharlyTTS's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy (https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+
+> CharlyTTS's use and transfer of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
 
 This document describes the OAuth permissions requested by CharlyTTS, the functions that use them, and how user data is handled.
 
@@ -186,6 +187,18 @@ That token is used for:
 The permissions depend on the scopes authorized by the streamer when creating their Twitch token.
 
 CharlyTTS does not manage Twitch OAuth credentials.
+
+---
+
+# Discord Integration (Optional)
+
+Discord integration does not use an OAuth consent flow either.
+
+The streamer manually provides their own Discord bot token, generated and authorized by themselves through Discord's Developer Portal.
+
+This token is used only for optional features (voice/TTS and notification features) that the streamer explicitly enables.
+
+CharlyTTS does not manage Discord OAuth credentials.
 
 ---
 
