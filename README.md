@@ -57,7 +57,7 @@ Additional technical details are available in the OAuth documentation.
 
 ## Documentation
 
-* OAuth Permissions
+* [OAuth Permissions](OAuth_Permissions.md)
 * [Privacy Policy](Privacy_Policy.MD)
 * Contact Information
 
