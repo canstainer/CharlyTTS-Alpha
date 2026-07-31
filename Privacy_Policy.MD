@@ -115,6 +115,6 @@ The latest version will always be available from this repository.
 
 For questions regarding this Privacy Policy, please contact the developer at:
 
-**[TU EMAIL DE CONTACTO AQUI]**
+charylbotlabs@gmail.com
 
 <!-- Reemplaza la línea de arriba por el email/contacto real antes de subir. -->
