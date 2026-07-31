@@ -8,6 +8,8 @@ CharlyTTS is a Windows desktop application designed for livestream creators. Thi
 
 CharlyTTS is designed to operate primarily on the user's local computer. It is not a cloud service and does not maintain a centralized database of user accounts or streaming data.
 
+CharlyTTS's use and transfer of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+
 ---
 
 ## Information We Access
@@ -63,9 +65,13 @@ Depending on the features enabled by the user, CharlyTTS may communicate directl
 * Twitch
 * Kick
 * OpenRouter (if the user enables AI moderation)
-* Discord (optional features)
+* Discord (optional voice/notification features)
 
 These services are governed by their own privacy policies.
+
+### Discord (Optional)
+
+Discord features do not use an OAuth consent flow. The streamer manually provides their own Discord bot token, created and authorized by themselves through Discord's Developer Portal. This token is used only for the optional voice/TTS and notification features the streamer explicitly enables, and is stored locally like any other credential.
 
 ---
 
@@ -101,10 +107,14 @@ Users may also disconnect supported platforms directly from within CharlyTTS.
 
 This Privacy Policy may be updated as the application evolves.
 
-The latest version will always be available from the project's official website.
+The latest version will always be available from this repository.
 
 ---
 
 ## Contact
 
-For questions regarding this Privacy Policy, please contact the developer using the contact information published on the official project website.
+For questions regarding this Privacy Policy, please contact the developer at:
+
+**[TU EMAIL DE CONTACTO AQUI]**
+
+<!-- Reemplaza la línea de arriba por el email/contacto real antes de subir. -->
