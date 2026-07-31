@@ -59,7 +59,6 @@ Additional technical details are available in the OAuth documentation.
 
 * [OAuth Permissions](OAuth_Permissions.md)
 * [Privacy Policy](Privacy_Policy.MD)
-* Contact Information
 
 ---
 
@@ -68,3 +67,11 @@ Additional technical details are available in the OAuth documentation.
 * Windows (Electron)
 
 ---
+
+## Contact
+
+For questions about this application, its OAuth permissions, or its Privacy Policy, contact the developer at:
+
+**[TU EMAIL DE CONTACTO AQUI]**
+
+<!-- Reemplaza la línea de arriba por el email/contacto real antes de subir. -->
