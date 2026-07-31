@@ -64,7 +64,7 @@ The developer may discontinue support or availability of the Application at any 
 
 ## Governing Law
 
-These Terms are governed by the laws of **[PAIS / JURISDICCION APLICABLE]**, without regard to conflict-of-law principles.
+These Terms are governed by the laws of **CHILE**, without regard to conflict-of-law principles.
 
 <!-- Completa la jurisdiccion aplicable (tu pais de residencia/operacion) antes de subir. -->
 
