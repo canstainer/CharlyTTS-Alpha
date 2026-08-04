@@ -1,3 +1,7 @@
+---
+title: CharlyTTS
+---
+
 # CharlyTTS
 
 **CharlyTTS** is a Windows desktop application designed for livestream creators. It connects to supported streaming platforms, reads live chat messages, and provides text-to-speech, moderation, overlays, and interactive stream tools.
