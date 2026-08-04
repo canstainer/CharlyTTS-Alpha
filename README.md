@@ -1,5 +1,6 @@
 ---
 title: CharlyTTS
+permalink: /
 ---
 
 # CharlyTTS
