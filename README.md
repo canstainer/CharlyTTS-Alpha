@@ -79,3 +79,5 @@ Additional technical details are available in the OAuth documentation.
 For questions about this application, its OAuth permissions, or its Privacy Policy, contact the developer at:
 
 **charylbotlabs@gmail.com**
+
+<!-- last verified: 2026-08-05 -->
