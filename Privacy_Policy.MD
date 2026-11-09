@@ -144,4 +144,4 @@ This Privacy Policy may be updated as the application evolves. The latest versio
 
 For questions regarding this Privacy Policy, please contact the developer at:
 
-charylbotlabs@gmail.com
+charylbotsupport@gmail.com
