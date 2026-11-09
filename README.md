@@ -67,7 +67,7 @@ Additional technical details are available in the OAuth documentation.
 
 * [OAuth Permissions](OAuth_Permissions.md)
 * [Privacy Policy](Privacy_Policy.MD)
-* [Term_of_Service](Terms_of_Service.MD)
+* [Terms of Service](Terms_of_Service.MD)
 
 ---
 
