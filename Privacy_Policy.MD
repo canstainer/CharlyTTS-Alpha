@@ -1,27 +1,66 @@
 # Privacy Policy
 
-**Last updated:** July 30, 2026
+**Last updated:** November 9, 2026
 
 ## Introduction
 
-CharlyTTS is a Windows desktop application designed for livestream creators. This Privacy Policy explains what information the application accesses, how it is used, and how it is protected.
+CharlyTTS is a Windows desktop application designed for livestream creators. This Privacy Policy explains what information the application accesses, how it is used, how long it is kept, and how users can remove it.
 
-CharlyTTS is designed to operate primarily on the user's local computer. It is not a cloud service and does not maintain a centralized database of user accounts or streaming data.
-
-CharlyTTS's use and transfer of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+CharlyTTS runs on the user's own computer. It is not a cloud service and does not maintain a centralized database of user accounts, chat messages, or streaming data.
 
 ---
 
-## Information We Access
+## YouTube API Services
 
-Depending on the streaming platform the user connects, CharlyTTS may access:
+CharlyTTS uses YouTube API Services. By using the YouTube features of CharlyTTS, users agree to be bound by the [YouTube Terms of Service](https://www.youtube.com/t/terms).
+
+Information obtained through YouTube API Services is also subject to the [Google Privacy Policy](https://policies.google.com/privacy).
+
+CharlyTTS's use and transfer of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+
+### What YouTube information CharlyTTS accesses
+
+When the streamer connects their YouTube account:
+
+* Basic channel information (channel ID, title and handle), to show which account is connected.
+* Whether the channel has an active live broadcast, to connect to its live chat.
+* The title of the streamer's own live broadcast, only when the streamer asks the app to change it.
+* Whether the live broadcast is eligible for ads, only when the streamer asks the app to request an ad break.
+
+For the optional Song Request feature, when a viewer requests a video:
+
+* Public information about that video and its channel (such as title, duration, category, channel name and licensing flags), to decide whether it can enter the streamer's song queue.
+
+### How this information is used and stored
+
+* YouTube information is used only to provide the features listed above, on the streamer's own computer.
+* Public video and channel information for Song Request is cached on the streamer's computer for at most 30 days and then deleted automatically.
+* Song requests may use the streamer's own YouTube API key or, if the streamer has none, a server operated by the developer. That server only forwards the public video lookup, does not link it to any user account, and keeps the response for at most 24 hours.
+* Song lists the streamer saves on purpose (playlists and approved songs) stay on the streamer's computer until the streamer removes them.
+* YouTube information is not sold, not used for advertising, and not shared with third parties, except as described in "Third-Party Services".
+
+### Cookies and data stored on the user's device
+
+CharlyTTS shows YouTube's own pages inside the application: the embedded YouTube player for Song Request and the YouTube live chat page. These YouTube pages may store cookies and similar data on the user's computer, as they would in a web browser. That data is governed by the Google Privacy Policy. Signing out of YouTube inside CharlyTTS, or deleting the application's data folder, removes it from the computer.
+
+### Revoking access
+
+Users can revoke CharlyTTS's access to their Google account at any time from the Google security settings page: [https://myaccount.google.com/permissions](https://myaccount.google.com/permissions)
+
+Users can also disconnect YouTube inside CharlyTTS, which deletes the locally stored access tokens.
+
+---
+
+## Other Information CharlyTTS Accesses
+
+Depending on the platforms the user connects:
 
 * Basic account information (such as channel ID, channel name, or username).
 * Information required to detect active livestreams.
-* Live chat messages from the user's own channel.
+* Live chat messages from the user's own channel, to read them aloud, moderate them and show them in the user's overlays.
 * User preferences and application settings stored locally.
 
-The application only requests the minimum permissions required for its functionality.
+The application only requests the permissions required for its features.
 
 ---
 
@@ -39,11 +78,11 @@ CharlyTTS does not:
 
 ## OAuth Authentication
 
-When users connect supported platforms (such as YouTube or Kick), OAuth authentication is used.
+When users connect supported platforms (such as YouTube, Twitch or Kick), standard OAuth authentication is used.
 
 Client secrets are not distributed with the desktop application.
 
-A Cloudflare Worker is used only to securely exchange authorization codes for OAuth tokens. The Worker does not permanently store user access tokens or personal information.
+A Cloudflare Worker is used to securely exchange authorization codes for OAuth tokens. The Worker does not store user access tokens or personal information.
 
 OAuth tokens are stored locally on the user's own computer.
 
@@ -51,21 +90,22 @@ OAuth tokens are stored locally on the user's own computer.
 
 ## Local Storage
 
-Application settings, configuration files, OAuth tokens, and user preferences are stored only on the user's local device.
-
-Removing the application or deleting its configuration files removes this locally stored information.
+Application settings, configuration files, OAuth tokens, logs and user preferences are stored only on the user's local device.
 
 ---
 
 ## Third-Party Services
 
-Depending on the features enabled by the user, CharlyTTS may communicate directly with third-party services, including:
+Depending on the features enabled by the user, CharlyTTS communicates with these services:
 
-* Google (YouTube OAuth)
+* Google / YouTube (account connection, live chat, Song Request, embedded player)
 * Twitch
 * Kick
-* OpenRouter (if the user enables AI moderation)
-* Discord (optional voice/notification features)
+* TikTok (reading live chat)
+* Discord (optional voice and notification features)
+* Apple iTunes Search and Deezer (Song Request: the artist and song name are looked up in their public catalogs to warn the streamer about commercial music; no user information is sent)
+
+* An AI moderation provider chosen by the user (only in versions that offer this optional feature, and only if the user turns it on): chat messages are sent directly from the user's computer to that provider for moderation. The developer does not proxy, inspect or store these requests.
 
 These services are governed by their own privacy policies.
 
@@ -75,13 +115,12 @@ Discord features do not use an OAuth consent flow. The streamer manually provide
 
 ---
 
-## AI Features
+## Deleting Your Data
 
-Some optional features use external AI providers.
-
-When enabled by the user, chat messages may be sent directly to the AI provider selected by the user for moderation purposes.
-
-The developer does not proxy, inspect, or permanently store these requests.
+* Data stored on the user's computer can be deleted by removing the application and its data folder.
+* Song Request video information is deleted automatically after 30 days.
+* Google access can be revoked at any time from [https://myaccount.google.com/permissions](https://myaccount.google.com/permissions).
+* The developer does not keep user data on its servers. For any question or request about data, contact the developer at the address below; requests are answered within 7 days.
 
 ---
 
@@ -95,19 +134,9 @@ Users remain responsible for protecting their own computers and local configurat
 
 ---
 
-## Revoking Access
-
-Users may revoke OAuth permissions at any time through the corresponding platform's account settings (for example, Google Account Permissions).
-
-Users may also disconnect supported platforms directly from within CharlyTTS.
-
----
-
 ## Changes
 
-This Privacy Policy may be updated as the application evolves.
-
-The latest version will always be available from this repository.
+This Privacy Policy may be updated as the application evolves. The latest version is always available at [https://charlytts.com/Privacy_Policy.html](https://charlytts.com/Privacy_Policy.html).
 
 ---
 
@@ -116,5 +145,3 @@ The latest version will always be available from this repository.
 For questions regarding this Privacy Policy, please contact the developer at:
 
 charylbotlabs@gmail.com
-
-<!-- Reemplaza la línea de arriba por el email/contacto real antes de subir. -->
