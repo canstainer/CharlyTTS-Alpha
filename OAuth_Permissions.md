@@ -20,36 +20,36 @@ CharlyTTS does not operate as a cloud service and does not maintain a centralize
 
 # YouTube OAuth
 
-## Requested Scope
+## Requested Scopes
 
-CharlyTTS requests only the following YouTube OAuth scope:
+CharlyTTS requests the following YouTube OAuth scopes:
 
 
 https://www.googleapis.com/auth/youtube.readonly
+https://www.googleapis.com/auth/youtube.force-ssl
 
-
-No write permissions are requested.
 
 The application does not request:
 
 - `https://www.googleapis.com/auth/youtube`
-- `https://www.googleapis.com/auth/youtube.force-ssl`
 - `https://www.googleapis.com/auth/youtube.channel-memberships.creator`
 
 ---
 
 ## Purpose of YouTube Access
 
-The YouTube OAuth permission is used only for:
+The YouTube OAuth permissions are used only for:
 
 1. Identifying the authenticated YouTube channel.
 2. Detecting whether the channel currently has an active livestream.
+3. Changing the title of the streamer's own live broadcast, when the streamer asks for it.
+4. Requesting an ad break on the streamer's own live broadcast, when the streamer asks for it and YouTube reports the channel as eligible.
 
 ---
 
 ## Functions Using YouTube OAuth
 
-### `getChannelInfo()`
+### `getChannelInfo()` (youtube.readonly)
 
 Endpoint:
 
@@ -69,7 +69,7 @@ This information is displayed inside the CharlyTTS control panel.
 
 ---
 
-### `getActiveStreamId()`
+### `getActiveStreamId()` (youtube.readonly)
 
 Endpoint:
 
@@ -83,14 +83,43 @@ Detects whether the authenticated channel currently has an active broadcast and 
 
 ---
 
+### `setTitle()` (youtube.force-ssl)
+
+Endpoints:
+
+
+GET /youtube/v3/videos?part=snippet
+PUT /youtube/v3/videos?part=snippet
+
+
+Purpose:
+
+Lets the streamer change the title of their own live broadcast from inside the app (panel, chat command or voice command). The current snippet is read first and only the title is changed, so no other field is modified.
+
+---
+
+### `getAdEligibility()` and `startAdBreak()` (youtube.force-ssl)
+
+Endpoints:
+
+
+GET /youtube/v3/liveBroadcasts?part=monetizationDetails
+POST /youtube/v3/liveBroadcasts/cuepoint
+
+
+Purpose:
+
+Lets the streamer request an ad break on their own live broadcast. The app first checks whether the broadcast is eligible for ads and only sends the request if it is. This information is used only for that check; it is not stored or shown elsewhere.
+
+---
+
 ## YouTube Data Handling
 
 CharlyTTS does not:
 
-- Upload videos.
-- Modify YouTube content.
+- Upload or delete videos.
+- Modify YouTube content, apart from the live broadcast title changed by the streamer.
 - Publish messages through the YouTube API.
-- Access monetization information.
 - Access channel membership information.
 
 YouTube live chat is not read through the YouTube Data API.
@@ -158,6 +187,12 @@ channel:write
 chat:write
 
 
+If the streamer turns on moderation actions, CharlyTTS also requests:
+
+
+moderation:ban
+
+
 ## Purpose
 
 | Scope | Purpose |
@@ -166,6 +201,7 @@ chat:write
 | channel:read | Retrieve channel information |
 | channel:write | Allow channel title/category changes through supported commands |
 | chat:write | Allow the application to send messages to Kick chat |
+| moderation:ban | Optional: timeouts and bans chosen by the streamer |
 
 Kick OAuth tokens are stored locally on the user's computer.
 
@@ -175,24 +211,17 @@ The token exchange uses the same secure proxy pattern used for YouTube.
 
 # Twitch Authentication
 
-CharlyTTS does not implement its own Twitch OAuth login flow.
+CharlyTTS connects to Twitch through Twitch's standard OAuth authorization flow.
 
-The streamer provides their own Twitch authentication token.
+The streamer authorizes the base permissions needed to read chat and receive channel events. Permissions for optional features (for example, moderation actions) are requested only when the streamer turns those features on.
 
-That token is used for:
-
-- Reading Twitch chat.
-- EventSub integrations.
-
-The permissions depend on the scopes authorized by the streamer when creating their Twitch token.
-
-CharlyTTS does not manage Twitch OAuth credentials.
+Twitch tokens are stored locally on the user's computer.
 
 ---
 
 # Discord Integration (Optional)
 
-Discord integration does not use an OAuth consent flow either.
+Discord integration does not use an OAuth consent flow.
 
 The streamer manually provides their own Discord bot token, generated and authorized by themselves through Discord's Developer Portal.
 
@@ -212,7 +241,10 @@ CharlyTTS follows these principles:
 - No selling or sharing of user information.
 - Credentials remain on the user's own computer.
 
-The developer-controlled server infrastructure is limited to secure OAuth token exchange through a proxy service and does not store user data.
+The developer-controlled server infrastructure is limited to:
+
+- Secure OAuth token exchange through a proxy service.
+- Public YouTube video and channel lookups for the song request feature, for streamers who do not use their own YouTube API key. These lookups use public data only, are not linked to any user account, and are only cached for up to 24 hours.
 
 ---
 
