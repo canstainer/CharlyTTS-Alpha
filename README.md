@@ -14,9 +14,10 @@ The application runs locally on the streamer's computer. User credentials and OA
 ## Main Features
 
 * Text-to-Speech (TTS) for live chat.
-* AI-assisted chat moderation (using the user's own API key).
+* AI-assisted chat moderation that runs on the user's computer.
 * Custom overlay system for OBS.
 * Interactive chat features and mini-games.
+* Song requests played in the official embedded YouTube player.
 * Multi-platform support.
 
 Supported platforms:
@@ -40,20 +41,22 @@ CharlyTTS has been designed to minimize the exposure of sensitive credentials.
 
 ## YouTube OAuth
 
-The application requests only the following Google OAuth scope:
+The application requests the following Google OAuth scopes:
 
-`https://www.googleapis.com/auth/youtube.readonly`
+* `https://www.googleapis.com/auth/youtube.readonly`
+* `https://www.googleapis.com/auth/youtube.force-ssl`
 
-This permission is used only to:
+These permissions are used only to:
 
 * Identify the authenticated YouTube channel.
 * Detect whether the channel currently has an active livestream.
+* Let the streamer change the title of their own live broadcast from inside the app.
+* Let the streamer request an ad break on their own live broadcast, only when YouTube reports the channel as eligible.
 
 The application **does not**:
 
-* Upload or modify YouTube content.
+* Upload, delete or otherwise modify YouTube videos, apart from the live broadcast title changed by the streamer.
 * Publish chat messages through the YouTube API.
-* Access monetization information.
 * Access membership information.
 
 Additional technical details are available in the OAuth documentation.
@@ -79,5 +82,3 @@ Additional technical details are available in the OAuth documentation.
 For questions about this application, its OAuth permissions, or its Privacy Policy, contact the developer at:
 
 **charylbotlabs@gmail.com**
-
-<!-- last verified: 2026-08-05 -->
